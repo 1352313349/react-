@@ -1,6 +1,8 @@
 import React from 'react';
 import {Route} from "react-router-dom"
 import Login from "./Login/login"
+import "./asset/app.css"
+
 
 
 class App extends React.Component{

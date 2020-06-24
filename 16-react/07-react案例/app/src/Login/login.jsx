@@ -2,13 +2,19 @@ import React from "react"
 import "./login.css"
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import axios from "axios"
 
 
 export default class Login extends React.Component {
     render() {
         const onFinish = values => {
             console.log('Received values of form: ', values);
+            
+            axios.post("/login",values).then(res=>{
+                console.log(res)
+            })
+            
+
           };
 
         return (
@@ -44,6 +50,11 @@ export default class Login extends React.Component {
                                 {
                                     required: true,
                                     message: 'Please input your Password!',
+                                },
+                                {
+                                    min:2,
+                                    message:"密码必须大于两位"
+
                                 },
                             ]}
                         >

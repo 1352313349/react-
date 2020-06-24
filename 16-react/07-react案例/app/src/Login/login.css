@@ -45,7 +45,8 @@ html,body{
 }
 
 .login-form-button{
-    display: block;
-    margin: 0 auto;
+    /* display: block; */
+    /* margin: 0 auto; */
+    margin-left: 150px;
 
 }
