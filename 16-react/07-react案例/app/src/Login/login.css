@@ -1,0 +1,51 @@
+*{
+    margin: 0;padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#root{
+    width: 100%;
+    height: 100%;
+}
+.app{
+    width: 100%;
+    height: 100%;
+}
+.login{
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+}
+.login header{
+    display: flex;
+     align-items:center;
+    width: 100%;
+    height: 90px;
+    background-color: skyblue;
+
+}
+.login header h1{
+    color: white;
+    margin-left: 20px;
+   
+}
+.login section{
+    height: 300px;
+    width: 400px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10%;
+}
+.login section h3{
+    margin-left: 150px;
+    padding-top: 20px;
+}
+
+.login-form-button{
+    display: block;
+    margin: 0 auto;
+
+}
