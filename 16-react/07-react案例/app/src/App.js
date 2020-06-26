@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from "react-router-dom"
-import Login from "./Login/login"
+import Login from "./page/Login/login"
+import Admin from "./page/Admin/admin"
 import "./asset/app.css"
 
 
@@ -11,7 +12,7 @@ class App extends React.Component{
       <div className="app">
         
         
-       
+       <Route path="/" component={Admin}></Route>
         <Route path="/login" component={Login}></Route>
       </div>
     )
