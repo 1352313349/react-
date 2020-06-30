@@ -1,26 +1,29 @@
 import React from "react"
 import "./admin.css"
-import {Route,Link,Redirect,withRouter} from "react-router-dom"
+import {Route,Redirect,Switch} from "react-router-dom"
 
 
 import Header from "./components/Header/header" 
+import LeftNav from "./components/left-nav"
 import Home from "../Home/home"
-import Product from "../Product/product"
+import ProductManage from "../Product/productManage"
+import BrandManage from "../BrandManage/brandManage"
 import User from "../User/user"
 import Role from "../Role/role"
 import Chart from "../Chart/chart"
 import Order from "../Order/order"
 import storage from "../../utils/storage"
+
 import { Layout, Menu } from 'antd';
-import {BarChartOutlined, TeamOutlined,UserOutlined, UploadOutlined,PieChartOutlined} from '@ant-design/icons';  //引入图标
-const { SubMenu } = Menu;
+
+
 
 const { Content, Footer, Sider } = Layout;
 
 export default  class Admin extends React.Component {
     render() {
         let user=storage.user
-        console.log(storage.user)
+        // console.log(storage.user)
         if(!user || !user._id){
             // this.props.history.replace("/login")
            return <Redirect to="/login"></Redirect>
@@ -31,7 +34,7 @@ export default  class Admin extends React.Component {
         return (
            
             <Layout style={{ height: '100%' }}>
-                <Sider
+                {/* <Sider
                     style={{
                         overflow: 'auto',
                         height: '100vh',
@@ -45,8 +48,8 @@ export default  class Admin extends React.Component {
                             <Link to="/home">首页</Link>
         </Menu.Item>
                         <SubMenu key="sub1" icon={<UserOutlined />} title="商品">
-                            <Menu.Item key="2" icon={<PieChartOutlined />}><Link to="/product/brand">品牌管理</Link></Menu.Item>
-                            <Menu.Item key="3" icon={<PieChartOutlined />}><Link to="/product/manage">商品管理</Link></Menu.Item>
+                            <Menu.Item key="2" icon={<PieChartOutlined />}><Link to="/brand">品牌管理</Link></Menu.Item>
+                            <Menu.Item key="3" icon={<PieChartOutlined />}><Link to="/product">商品管理</Link></Menu.Item>
 
                         </SubMenu>
                         <Menu.Item key="4" icon={<UploadOutlined />}>
@@ -66,21 +69,26 @@ export default  class Admin extends React.Component {
         </Menu.Item>
 
                     </Menu>
-                </Sider>
+                </Sider> */}
+                <LeftNav></LeftNav>
                 <Layout className="site-layout" style={{ marginLeft: 200 }}>
                     <Header></Header>
                     <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
                         <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
                            
           <br />
-        
-          <Route path="/home" component={Home}></Route>
-          <Route path="/product" component={Product}></Route>
+        <Switch>
+
+        <Route path="/home" component={Home}></Route>
+          <Route path="/product" component={ProductManage}></Route>
+          <Route path="/brand" component={BrandManage}></Route>
           <Route path="/user" component={User}></Route>
           <Route path="/role" component={Role}></Route>
           <Route path="/chart" component={Chart}></Route>
           <Route path="/order" component={Order}></Route>
           <Redirect to="/home"></Redirect>
+        </Switch>
+          
           
         </div>
                     </Content>

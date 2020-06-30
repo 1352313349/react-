@@ -20,7 +20,7 @@ const { confirm } = Modal;
         weather:""
     }
     getTime=()=>{
-        setInterval(()=>{
+        this.intervalId= setInterval(()=>{
             // const currentTime=formatDate(Date.now())
             const currentTime=getDate()
             this.setState({currentTime})
@@ -56,11 +56,17 @@ const { confirm } = Modal;
         this.getTime()
         this.getWeather()
     }
+    componentWillMount(){
+        clearInterval(this.intervalId)
+    }
     render(){
+        const username=storage.user.username
+        
+        
         return(
             <div className="header">
                 <div  className="header-top" >
-                    <span>欢迎，admin</span>
+                    <span>欢迎，{username}</span>
                     <LinkButton onClick={this.logout}>退出</LinkButton>
                     
                 </div>
